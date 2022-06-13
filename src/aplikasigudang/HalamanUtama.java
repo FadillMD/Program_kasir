@@ -4,10 +4,8 @@
  */
 package aplikasigudang;
 
-/**
- *
- * @author fadil
- */
+import java.awt.Dimension;
+import java.awt.Toolkit;
 public class HalamanUtama extends javax.swing.JFrame {
 
     /**
@@ -15,6 +13,14 @@ public class HalamanUtama extends javax.swing.JFrame {
      */
     public HalamanUtama() {
         initComponents();
+        // mengambil ukuran layar
+        Dimension layar = Toolkit.getDefaultToolkit().getScreenSize();
+
+        // membuat titik x dan y
+        int x = layar.width / 2  - this.getSize().width / 2;
+        int y = layar.height / 2 - this.getSize().height / 2;
+
+        this.setLocation(x, y);
     }
 
     /**

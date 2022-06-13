@@ -5,7 +5,8 @@ import java.sql.Statement;
 import java.sql.SQLException;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
-
+import java.awt.Dimension;
+import java.awt.Toolkit;
 public class Penjualan extends javax.swing.JFrame {
     
     public Statement st; //fungsi memanggil statement
@@ -15,7 +16,18 @@ public class Penjualan extends javax.swing.JFrame {
     
     public Penjualan() {
         initComponents();
-        dataDbtoCb();
+        // mengambil ukuran layar
+        Dimension layar = Toolkit.getDefaultToolkit().getScreenSize();
+
+        // membuat titik x dan y
+        int x = layar.width / 2  - this.getSize().width / 2;
+        int y = layar.height / 2 - this.getSize().height / 2;
+
+        this.setLocation(x, y);
+        
+        dataDbtoCb();//mengambil data dari database ke combobox
+        
+        //membuat desain tabel
         gotham = new DefaultTableModel ( );
         tbjual.setModel(gotham);
         gotham.addColumn("Kode Barang");
@@ -109,7 +121,7 @@ public void dataDbtoCb(){//mengambil data dari database masuk kedalam combobox
         jLabel9 = new javax.swing.JLabel();
         jSeparator2 = new javax.swing.JSeparator();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         jPanel1.setBackground(new java.awt.Color(36, 59, 103));
         jPanel1.setForeground(new java.awt.Color(58, 123, 153));

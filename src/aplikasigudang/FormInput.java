@@ -1,4 +1,6 @@
 package aplikasigudang;
+import java.awt.Dimension;
+import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.text.SimpleDateFormat;
@@ -19,7 +21,16 @@ public class FormInput extends javax.swing.JFrame {
     
     public FormInput() {
         initComponents();
+        // mengambil ukuran layar
+        Dimension layar = Toolkit.getDefaultToolkit().getScreenSize();
+
+        // membuat titik x dan y
+        int x = layar.width / 2  - this.getSize().width / 2;
+        int y = layar.height / 2 - this.getSize().height / 2;
+
+        this.setLocation(x, y);
         
+        //membuat desain tabel
         gotham = new DefaultTableModel ( );
         tabelstok.setModel(gotham);
         gotham.addColumn("Kode Barang");
